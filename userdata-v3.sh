@@ -45,6 +45,7 @@ RestartSec=10
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=demo-app
+AmbientCapabilities=CAP_NET_BIND_SERVICE
 
 [Install]
 WantedBy=multi-user.target
