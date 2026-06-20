@@ -41,6 +41,38 @@ INSERT INTO products (name, price, quantity) VALUES
   ('Keyboard', 79.99, 30);
 ```
 
+Fix Authentication
+```sh
+# Edit the postgresql.conf and postgresql file:
+sudo vi /var/lib/pgsql/data/postgresql.conf
+
+Find and change: 
+
+listen_addresses = 'localhost'
+
+To:
+
+listen_addresses = '*'
+
+# Edit the pg_hba.conf and postgresql file:
+sudo vi /var/lib/pgsql/data/pg_hba.conf
+
+Add this line before other rules (for local connections):
+
+host    demo    dbadmin    127.0.0.1/32    md5
+
+For remote connections from specific IP:
+
+host    demo    dbadmin    10.0.0.0/16    md5
+
+Or for any IP (less secure):
+
+host    demo    dbadmin    0.0.0.0/0    md5
+
+# Restart psql
+sudo systemctl restart postgresql
+```
+
 
 ## Application Deployment
 
