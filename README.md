@@ -16,7 +16,7 @@ Simple inventory management system built with Node.js, Express, and PostgreSQL D
 
 ## Database Setup
 
-### 1. Create RDS PostgreSQL Instance
+### 1. Create PostgreSQL Instance
 
 - Engine: PostgreSQL
 - Instance class: `R7i.large`
