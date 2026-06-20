@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-DB_ENDPOINT=10.10.x.y
+DB_ENDPOINT=10.10.x.y # TODO: MUST BE UPDATED
 DB_PASSWORD=demoPassword
 DB_NAME="demo"
 DB_USER="dbadmin"
