@@ -27,7 +27,7 @@ EOF
 # Install dependencies
 npm install
 chown -R ec2-user:ec2-user /home/ec2-user/app
-mv server-v2.js server.js
+mv -f server-v2.js server.js
 
 # Create systemd service
 cat > /etc/systemd/system/demo-app.service <<'EOFS'
