@@ -10,89 +10,33 @@ const pool = new Pool({
   database: 'demo',
   user: process.env.DB_USER || 'postgres',
   password: process.env.DB_PASSWORD || 'postgres',
-  ssl: {
-    rejectUnauthorized: false
-  }
+  ssl: false
 });
 
 app.use(express.json());
 app.use(express.static('public'));
 
-// Get AWS metadata
 app.get('/api/metadata', async (req, res) => {
   try {
-    // Get IMDSv2 token
-    const tokenResponse = await fetch('http://169.254.169.254/latest/api/token', {
+    const tokenRes = await fetch('http://169.254.169.254/latest/api/token', {
       method: 'PUT',
       headers: { 'X-aws-ec2-metadata-token-ttl-seconds': '21600' }
     });
-    
-    if (!tokenResponse.ok) {
-      throw new Error('Failed to get token');
-    }
-    
-    const token = await tokenResponse.text();
-    console.log('IMDSv2 token obtained');
-
-    // Get region and instance ID
-    const [regionResponse, instanceIdResponse] = await Promise.all([
-      fetch('http://169.254.169.254/latest/meta-data/placement/region', {
-        headers: { 'X-aws-ec2-metadata-token': token }
-      }),
-      fetch('http://169.254.169.254/latest/meta-data/instance-id', {
-        headers: { 'X-aws-ec2-metadata-token': token }
-      })
+    const token = await tokenRes.text();
+    const [regionRes, instanceRes, azIdRes] = await Promise.all([
+      fetch('http://169.254.169.254/latest/meta-data/placement/region', { headers: { 'X-aws-ec2-metadata-token': token } }),
+      fetch('http://169.254.169.254/latest/meta-data/instance-id', { headers: { 'X-aws-ec2-metadata-token': token } }),
+      fetch('http://169.254.169.254/latest/meta-data/placement/availability-zone-id', { headers: { 'X-aws-ec2-metadata-token': token } })
     ]);
-
-    const region = await regionResponse.text();
-    const instanceId = await instanceIdResponse.text();
-    
-    console.log('Metadata:', { region, instanceId });
-    res.json({ region, instanceId });
+    res.json({ region: await regionRes.text(), instanceId: await instanceRes.text(), azId: await azIdRes.text() });
   } catch (err) {
-    console.error('Metadata error:', err.message);
     res.json({ region: 'N/A', instanceId: 'N/A' });
-  }
-});
-
-// CPU stress endpoint
-let stressInterval = null;
-app.post('/api/stress', (req, res) => {
-  const { duration = 600 } = req.body;
-  
-  if (stressInterval) {
-    return res.json({ status: 'already running' });
-  }
-
-  const endTime = Date.now() + (duration * 1000);
-  stressInterval = setInterval(() => {
-    if (Date.now() >= endTime) {
-      clearInterval(stressInterval);
-      stressInterval = null;
-      return;
-    }
-    // CPU intensive operation
-    for (let i = 0; i < 1000000; i++) {
-      Math.sqrt(Math.random());
-    }
-  }, 0);
-
-  res.json({ status: 'started', duration });
-});
-
-app.delete('/api/stress', (req, res) => {
-  if (stressInterval) {
-    clearInterval(stressInterval);
-    stressInterval = null;
-    res.json({ status: 'stopped' });
-  } else {
-    res.json({ status: 'not running' });
   }
 });
 
 app.get('/api/products', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM products ORDER BY id');
+    const result = await pool.query('SELECT id, name, quantity AS qty FROM products ORDER BY id');
     res.json(result.rows);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -103,7 +47,7 @@ app.post('/api/products', async (req, res) => {
   const { name, qty } = req.body;
   try {
     const result = await pool.query(
-      'INSERT INTO products (name, qty) VALUES ($1, $2) RETURNING *',
+      'INSERT INTO products (name, quantity) VALUES ($1, $2) RETURNING id, name, quantity AS qty',
       [name, qty]
     );
     res.json(result.rows[0]);
@@ -116,7 +60,7 @@ app.put('/api/products/:id', async (req, res) => {
   const { name, qty } = req.body;
   try {
     const result = await pool.query(
-      'UPDATE products SET name = $1, qty = $2 WHERE id = $3 RETURNING *',
+      'UPDATE products SET name = $1, quantity = $2 WHERE id = $3 RETURNING id, name, quantity AS qty',
       [name, qty, req.params.id]
     );
     res.json(result.rows[0]);

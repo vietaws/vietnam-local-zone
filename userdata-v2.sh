@@ -45,10 +45,11 @@ sudo -u postgres psql -d ${DB_NAME} -c "
 
 
 # Config Authentication
+sed -i "s/^#*listen_addresses = 'localhost'/listen_addresses = '*'/g" /var/lib/pgsql/data/postgresql.conf
 sed -i 's/local   all             all                                     peer/local   all     all                                     scram-sha-256/g' /var/lib/pgsql/data/pg_hba.conf
 sed -i 's/host    all             all             127.0.0.1\/32            ident/host    all             all             127.0.0.1\/32            scram-sha-256/g' /var/lib/pgsql/data/pg_hba.conf
 sed -i 's/host    all             all             ::1\/128                 ident/host    all             all             ::1\/128                 scram-sha-256/g' /var/lib/pgsql/data/pg_hba.conf
 
-echo "host    all             all             0.0.0.0/0               scram-sha-256"
+sed -i '$a host    demo    dbadmin    0.0.0.0/0    md5' /var/lib/pgsql/data/pg_hba.conf
 
 systemctl restart postgresql
