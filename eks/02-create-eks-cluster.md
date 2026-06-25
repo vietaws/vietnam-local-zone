@@ -4,7 +4,6 @@
 # Get List of clusters
 eksctl get cluster
 
-
 # Create Cluster
 eksctl create cluster -f cluster.yaml
 
