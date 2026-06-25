@@ -1,14 +1,13 @@
 ## Create new EKS Cluster
 
 ```sh
+
 # Create Cluster
-eksctl create cluster --name=vietaws \
-                      --region=ap-southeast-1 \
-                      --zones=ap-southeast-1b,ap-southeast-1c \
-                      --without-nodegroup
+eksctl create cluster -f eks-local-zone.yaml
+
 
 # Get List of clusters
-eksctl get cluster --profile eks
+eksctl get cluster
 
 # Enable IAM OIDC
 eksctl utils associate-iam-oidc-provider \
