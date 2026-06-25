@@ -1,6 +1,7 @@
 ```sh
 # Manual Create Hanoi Local Zone Subnet
-VPC_ID=$(aws ec2 describe-vpcs --filters "Name=tag:alpha.eksctl.io/cluster-name,Values=singapore-hanoi-cluster" --query "Vpcs.VpcId" --output text --region ap-southeast-1)
+VPC_ID=$(aws ec2 describe-vpcs --filters "Name=tag:alpha.eksctl.io/cluster-name,Values=	
+singapore-hanoi-cluster" --query "Vpcs[].VpcId" --output text --region ap-southeast-1)
 
 # Create subnet
 SUBNET_ID=$(aws ec2 create-subnet --vpc-id $VPC_ID --cidr-block 10.0.160.0/20 --availability-zone ap-southeast-1-han-1a --query "Subnet.SubnetId" --output text --region ap-southeast-1)
