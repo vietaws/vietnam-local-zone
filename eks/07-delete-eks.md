@@ -1,10 +1,10 @@
 ```sh
 eksctl get clusters 
 
-eksctl get nodegroup --cluster=vietaws
+eksctl get nodegroup --cluster=singapore-hanoi-cluster
 
-eksctl delete nodegroup --cluster=vietaws --name=private-ng1
+eksctl delete nodegroup --cluster=singapore-hanoi-cluster --name=hanoi-edge-nodes
 
-eksctl delete cluster vietaws 
+eksctl delete cluster singapore-hanoi-cluster 
 
 ```

@@ -1,41 +1,14 @@
-## Create Node Group
-
 ```sh
-# Create Public Node Group
-eksctl create nodegroup --cluster=vietaws \
-                       --region=ap-southeast-1 \
-                       --name=public-ng1 \
-                       --node-type=c7i.large \
-                       --nodes=1 \
-                       --nodes-min=1 \
-                       --nodes-max=3 \
-                       --node-volume-size=20 \
-                       --managed \
-                       --asg-access \
-                       --external-dns-access \
-                       --full-ecr-access \
-                       --appmesh-access \
-                       --alb-ingress-access
+# Manual Create Hanoi Local Zone Subnet
+VPC_ID=$(aws ec2 describe-vpcs --filters "Name=tag:alpha.eksctl.io/cluster-name,Values=singapore-hanoi-cluster" --query "Vpcs.VpcId" --output text --region ap-southeast-1)
 
-# Create Private node group
-eksctl create nodegroup --cluster=vietaws \
-                        --region=ap-southeast-1 \
-                        --name=private-ng1 \
-                        --node-type=c7i.large \
-                        --nodes-min=2 \
-                        --nodes-max=4 \
-                        --node-volume-size=20 \
-                        --managed \
-                        --asg-access \
-                        --external-dns-access \
-                        --full-ecr-access \
-                        --appmesh-access \
-                        --alb-ingress-access \
-                        --node-private-networking
+# Create subnet
+SUBNET_ID=$(aws ec2 create-subnet --vpc-id $VPC_ID --cidr-block 10.0.160.0/20 --availability-zone ap-southeast-1-han-1a --query "Subnet.SubnetId" --output text --region ap-southeast-1)
 
-# Verify
-eksctl get nodegroup --cluster=vietaws
+# Tagging eks subnet
+aws ec2 create-tags --resources $SUBNET_ID --tags Key=kubernetes.io/cluster/singapore-hanoi-cluster,Value=shared --region ap-southeast-1
 
-# Delete Node Group
-eksctl delete nodegroup private-ng1 --cluster vietaws
-```
+# Create Node Group
+# ✅ TODO: Update the subnet id to manifest
+eksctl create nodegroup -f hanoi-nodes.yaml
+``

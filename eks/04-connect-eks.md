@@ -1,6 +1,6 @@
 ```sh
 
-aws eks update-kubeconfig --alias vietaws5 --name vietaws5 
+aws eks update-kubeconfig --alias --name singapore-hanoi-cluster 
 
 # Verify
 kubectl config get-contexts

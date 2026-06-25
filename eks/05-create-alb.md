@@ -18,7 +18,7 @@ aws iam create-policy \
 
 # create IAM Service Account
 eksctl create iamserviceaccount \
-  --cluster=vietaws \
+  --cluster=singapore-hanoi-cluster \
   --namespace=kube-system \
   --name=aws-load-balancer-controller \
   --role-name AmazonEKSLoadBalancerControllerRole6 \
@@ -27,7 +27,7 @@ eksctl create iamserviceaccount \
   --approve
 
 # Get IAM Service Account
-eksctl  get iamserviceaccount --cluster vietaws
+eksctl  get iamserviceaccount --cluster singapore-hanoi-cluster
 
 # Describe Service Account alb-ingress-controller
 kubectl describe sa aws-load-balancer-controller -n kube-system
@@ -44,7 +44,7 @@ helm repo update
 
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
  -n kube-system \
- --set clusterName=vietaws \
+ --set clusterName=singapore-hanoi-cluster \
  --set serviceAccount.create=false \
  --set serviceAccount.name=aws-load-balancer-controller
 
@@ -52,11 +52,11 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
 # addon images: https://docs.aws.amazon.com/eks/latest/userguide/add-ons-images.html
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
   -n kube-system \
-  --set clusterName=vietaws \
+  --set clusterName=singapore-hanoi-cluster \
   --set serviceAccount.create=false \
   --set serviceAccount.name=aws-load-balancer-controller \
   --set region=ap-southeast-1 \
-  --set vpcId=vpc-0c1a1b2c7a575769a \
+  --set vpcId=<YOUR-VPC-ID>> \
   --set image.repository=602401143452.dkr.ecr.ap-southeast-1.amazonaws.com/amazon/aws-load-balancer-controller
 
 # Verify
