@@ -6,11 +6,12 @@ metadata:
   region: ap-southeast-1
   version: "1.36"
 
-# Step A: Define the parent Region Availability Zones for the control plane
-availabilityZones: ["ap-southeast-1b", "ap-southeast-1c"]
-
-# Step B: Declare the explicit Local Zone(s) to be utilized by the cluster vpc
-localZones: ["ap-southeast-1-han-1a"]
+vpc:
+  availabilityZones: ["ap-southeast-1b", "ap-southeast-1c"]
+  localZones: ["ap-southeast-1-han-1a"]
+  clusterEndpoints:
+    publicAccess: true
+    privateAccess: true
 
 managedNodeGroups:
   # Standard node group in the primary region
