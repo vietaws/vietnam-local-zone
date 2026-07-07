@@ -22,7 +22,7 @@ eksctl create iamserviceaccount \
   --namespace=kube-system \
   --name=aws-load-balancer-controller \
   --role-name AmazonEKSLoadBalancerControllerRole6 \
-  --attach-policy-arn=arn:aws:iam::274595021951:policy/AWSLoadBalancerControllerIAMPolicy \
+  --attach-policy-arn=arn:aws:iam::1234567890:policy/AWSLoadBalancerControllerIAMPolicy \
   --override-existing-serviceaccounts \
   --approve
 
@@ -56,8 +56,11 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
   --set serviceAccount.create=false \
   --set serviceAccount.name=aws-load-balancer-controller \
   --set region=ap-southeast-1 \
-  --set vpcId=<YOUR-VPC-ID>> \
-  --set image.repository=602401143452.dkr.ecr.ap-southeast-1.amazonaws.com/amazon/aws-load-balancer-controller
+  --set vpcId==<YOUR-VPC-ID> \
+  --set image.repository=602401143452.dkr.ecr.ap-southeast-1.amazonaws.com/amazon/aws-load-balancer-controller 
+  # --set "tolerations[0].operator=Exists" \
+  # --set "tolerations[0].effect=NoSchedule"
+  
 
 # Verify
 kubectl get deployment -n kube-system aws-load-balancer-controller

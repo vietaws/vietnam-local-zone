@@ -10,7 +10,7 @@ nodeGroups:
     instanceType: c7i.16xlarge # Must be supported in ap-southeast-1-han-1a
     desiredCapacity: 1
     subnets:
-      - "PASTE_YOUR_SUBNET_ID_HERE" # Explicit Subnet ID built from your custom CIDR block
+      - "<LOCAL-ZONE-SUBNET-ID>" # Explicit Subnet ID built from your custom CIDR block
     taints:
       - key: "local-zone"
         value: "true"
