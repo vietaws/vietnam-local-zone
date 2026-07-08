@@ -56,7 +56,7 @@ def random_date(start: datetime, end: datetime) -> datetime:
     return start + timedelta(seconds=random_seconds)
 
 
-def generate_records(n: int = 100) -> list[dict]:
+def generate_records(n: int = 10000) -> list[dict]:
     """Generate n synthetic sales records."""
     end_date = datetime.now()
     start_date = end_date - timedelta(days=365)
