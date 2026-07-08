@@ -1,5 +1,5 @@
 order_id,sale_date,sale_time,product_name,category,unit_price,quantity,discount_pct,discount_amount,total_amount,city,sales_channel,payment_method,status,sales_rep_id
-90588ACC-C21,2025-10-11,03:41:50,iPhone 15 Pro,Electronics,28954425,5,0,0,144772125,Vũng Tàu,Online,COD,Cancelled,REP005
+90588ACC-C21,2025-10-11,03:41:50,iPhone 15 Pro   ,Electronics,28954425,5,0,0,144772125,Vũng Tàu,Online,COD,Completed,REP005
 7D072D94-658,2026-02-05,06:44:28,Máy giặt Samsung 9kg,Appliances,8586926,5,10,4293463,38641167,Hà Nội,Mobile App,Credit Card,Completed,REP009
 8504AB0B-964,2026-05-31,10:44:31,Bàn làm việc gỗ,Furniture,2624498,3,20,1574698,6298796,Biên Hòa,Online,Cash,Completed,REP013
 084F41D3-B06,2025-08-06,09:56:34,Tai nghe Sony WH-1000XM5,Electronics,9340025,1,10,934002,8406023,Vũng Tàu,Mobile App,E-Wallet,Cancelled,REP011
