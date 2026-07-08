@@ -9,13 +9,15 @@ Generate synthetic Vietnamese sales data, analyse it, and transform it into clea
 ```
 vietnam-local-zone/
 ├── data_generator/
-│   ├── generate_sales.py   # produces 100-record CSV files
-│   └── requirements.txt    # Python dependencies
+│   ├── generate_sales.py       # produces 100-record CSV files
+│   └── requirements.txt        # Python dependencies
 ├── analysis/
-│   └── analyze_sales.py    # descriptive statistics & breakdowns
+│   ├── analyze_sales.py        # descriptive statistics on CSV files (v1)
+│   └── analyze_sales_v2.py     # advanced analysis on Parquet files (v2)
 ├── transformation/
-│   └── transform_sales.py  # cleaning & feature engineering
-└── data/                   # generated / processed files live here
+│   └── transform_sales.py      # cleaning & feature engineering → Parquet
+├── data/                       # raw generated CSV files
+└── cleaned/                    # transformed Parquet files
 ```
 
 ---
@@ -38,12 +40,15 @@ python data_generator/generate_sales.py
 python data_generator/generate_sales.py --files 5 --output data/sales.csv
 # → data/sales_001.csv … data/sales_005.csv
 
-# 5. Run analysis
+# 5. Run analysis on raw CSV
 python analysis/analyze_sales.py --input data/
 
 # 6. Run transformation
 python transformation/transform_sales.py --input data/
 # → cleaned/sales_clean.parquet
+
+# 7. Run advanced analysis on cleaned Parquet
+python analysis/analyze_sales_v2.py --input cleaned/
 ```
 
 ---
@@ -66,7 +71,7 @@ sudo dnf update -y
 
 ### 3 — Install system dependencies
 
-AL2023 ships with Python 3.9+. You need Python, pip, build tools, and system libraries for compiling pandas/numpy:
+AL2023 ships with Python 3.9+. Install Python, pip, and the build tools needed to compile pandas/numpy:
 
 ```bash
 sudo dnf install -y \
@@ -80,8 +85,6 @@ sudo dnf install -y \
     blas-devel \
     lapack \
     lapack-devel \
-    freetype-devel \
-    libpng-devel \
     zlib-devel
 ```
 
@@ -89,7 +92,7 @@ sudo dnf install -y \
 - `python3`, `python3-pip` — Python runtime and package manager
 - `python3-devel`, `gcc`, `gcc-c++`, `make` — C/C++ compilers for building native extensions
 - `blas`, `lapack` — Linear algebra libraries required by numpy
-- `freetype-devel`, `libpng-devel`, `zlib-devel` — Graphics libraries for matplotlib
+- `zlib-devel` — Compression library required by pyarrow
 
 Verify installation:
 
@@ -138,33 +141,18 @@ This installs:
 |---|---|---|
 | `pandas` | 2.2.2 | All scripts — data loading, filtering, grouping |
 | `numpy` | 1.26.4 | pandas dependency — numeric operations |
-| `pyarrow` | 14.0.1 | `transform_sales.py` — Parquet file output |
-| `matplotlib` | 3.9.0 | `analyze_sales.py` — plotting |
-| `seaborn` | 0.13.2 | `analyze_sales.py` — statistical visualisation |
-| `openpyxl` | 3.1.2 | optional — Excel output |
+| `pyarrow` | 14.0.1 | `transform_sales.py`, `analyze_sales_v2.py` — Parquet I/O |
 
-> **Running only `transform_sales.py`?**  
-> It only requires `pandas`, `numpy`, and `pyarrow`. You can install the minimal set:
-> ```bash
-> pip install pandas==2.2.2 numpy==1.26.4 pyarrow==14.0.1
-> ```
-
-**If you hit a build error for numpy or pandas** (common on minimal AL2023 images), install pre-built wheels instead:
+**If you hit a build error** (common on minimal AL2023 images), install pre-built wheels instead:
 
 ```bash
 pip install --only-binary :all: pandas==2.2.2 numpy==1.26.4 pyarrow==14.0.1
-pip install --only-binary :all: matplotlib==3.9.0 seaborn==0.13.2
-pip install openpyxl==3.1.2
 ```
 
 **Verify the install:**
 
 ```bash
-# Full install
-python3 -c "import pandas, numpy, pyarrow, matplotlib, seaborn, openpyxl; print('All packages OK')"
-
-# Minimal install (transform_sales.py only)
-python3 -c "import pandas, numpy, pyarrow; print('transform_sales.py dependencies OK')"
+python3 -c "import pandas, numpy, pyarrow; print('All packages OK')"
 ```
 
 ### 7 — Generate sample data
@@ -177,7 +165,7 @@ python data_generator/generate_sales.py --output data/sales_001.csv
 python data_generator/generate_sales.py --files 5 --output data/sales.csv
 ```
 
-### 8 — Run analysis
+### 8 — Run analysis on raw CSV
 
 ```bash
 python analysis/analyze_sales.py --input data/
@@ -199,7 +187,13 @@ To use a different output folder:
 python transformation/transform_sales.py --input data/ --output-dir processed/
 ```
 
-### 10 — (Optional) Run as a cron job
+### 10 — Run advanced analysis on Parquet
+
+```bash
+python analysis/analyze_sales_v2.py --input cleaned/
+```
+
+### 11 — (Optional) Run as a cron job
 
 Generate fresh data every day at 08:00 AM:
 
@@ -228,11 +222,23 @@ Add this line:
 | `--output` | `../data/sales_001.csv` | Output file path |
 | `--files` | `1` | Number of files to generate |
 
+Dependencies: stdlib only — no external packages required.
+
 ### analyze_sales.py
 
 | Argument | Default | Description |
 |---|---|---|
-| `--input` | `../data/` | CSV file or directory |
+| `--input` | `./data/` | CSV file or directory |
+
+Dependencies: `pandas`, `numpy`
+
+### analyze_sales_v2.py
+
+| Argument | Default | Description |
+|---|---|---|
+| `--input` | `./cleaned/` | Parquet file or directory |
+
+Dependencies: `pandas`, `numpy`, `pyarrow`
 
 ### transform_sales.py
 
@@ -245,9 +251,11 @@ Output filename is derived from the input automatically:
 - Directory input → `cleaned/sales_clean.parquet`
 - Single file input → `cleaned/<same-stem>.parquet`
 
+Dependencies: `pandas`, `numpy`, `pyarrow`
+
 ---
 
-## Output columns — cleaned file
+## Output columns — cleaned Parquet file
 
 | Column | Type | Notes |
 |---|---|---|
@@ -261,6 +269,7 @@ Output filename is derived from the input automatically:
 | `unit_price` | int | VND |
 | `quantity` | int | 1 – 5 |
 | `discount_pct` | int | 0, 5, 10, 15, or 20 |
+| `discount_amount` | int | VND discounted off subtotal |
 | `total_amount` | int | VND after discount |
 | `revenue_tier` | category | Low / Medium / High |
 | `is_discounted` | bool | True if discount_pct > 0 |
