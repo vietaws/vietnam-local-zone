@@ -161,12 +161,24 @@ python data_generator/generate_sales.py --files 5 --output data/sales.csv
 ### 8 — Run analysis on raw CSV
 
 ```bash
+python analysis/analyze_sales.py --input ./data/sales_001.csv
+
+python analysis/analyze_sales.py --input ./data/sales_002.csv
+
+python analysis/analyze_sales.py --input ./data/sales_003.csv
+
 python analysis/analyze_sales.py --input data/
 ```
 
 ### 9 — Run transformation
 
 ```bash
+python transformation/transform_sales.py --input ./data/sales_001.csv
+
+python transformation/transform_sales.py --input ./data/sales_002.csv
+
+python transformation/transform_sales.py --input ./data/sales_003.csv
+
 python transformation/transform_sales.py --input data/
 ```
 
@@ -183,6 +195,12 @@ python transformation/transform_sales.py --input data/ --output-dir processed/
 ### 10 — Run advanced analysis on Parquet
 
 ```bash
+python analysis/analyze_sales_v2.py --input ./cleaned/sales_001.parquet
+
+python analysis/analyze_sales_v2.py --input ./cleaned/sales_002.parquet
+
+python analysis/analyze_sales_v2.py --input ./cleaned/sales_003.parquet
+
 python analysis/analyze_sales_v2.py --input cleaned/
 ```
 
