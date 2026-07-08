@@ -115,7 +115,6 @@ cd vietnam-local-zone
 ### 5 — Create a virtual environment
 
 ```bash
-cd ~/vietnam-local-zone
 python3 -m venv .venv
 source .venv/bin/activate
 ```
