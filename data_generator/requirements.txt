@@ -1,0 +1,13 @@
+# Core data processing
+pandas==2.2.2
+numpy==1.26.4
+
+# Parquet support (required by transform_sales.py)
+pyarrow==14.0.1
+
+# Data visualization (for analyze_sales.py)
+matplotlib==3.9.0
+seaborn==0.13.2
+
+# Reporting (optional)
+openpyxl==3.1.2
