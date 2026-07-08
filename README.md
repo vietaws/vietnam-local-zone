@@ -192,6 +192,17 @@ To use a different output folder:
 python transformation/transform_sales.py --input data/ --output-dir processed/
 ```
 
+Display Usage:
+```bash
+    # Display all records
+    python analysis/display_records.py --file ./data/sales_001.csv
+    python analysis/display_records.py --file ./cleaned/sales_001.parquet
+
+    # Display first N records
+    python analysis/display_records.py --file ./data/sales_001.csv --n 10
+    python analysis/display_records.py --file ./cleaned/sales_001.parquet --n 5
+```
+
 ### 10 — Run advanced analysis on Parquet
 
 ```bash
