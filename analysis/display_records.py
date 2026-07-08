@@ -16,6 +16,7 @@ Usage:
 
 import argparse
 import os
+from typing import Optional
 
 import pandas as pd
 
@@ -41,7 +42,7 @@ def load_file(path: str) -> pd.DataFrame:
 
 # ── Display ───────────────────────────────────────────────────────────────────
 
-def display(df: pd.DataFrame, n: int | None) -> None:
+def display(df: pd.DataFrame, n: Optional[int]) -> None:
     """Print file info and records."""
     subset = df if n is None else df.head(n)
     label = "all" if n is None else str(n)

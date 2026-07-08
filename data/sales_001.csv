@@ -1,11 +1,101 @@
 order_id,sale_date,sale_time,product_name,category,unit_price,quantity,discount_pct,discount_amount,total_amount,city,sales_channel,payment_method,status,sales_rep_id
-90588ACC-C21,2025-10-11,03:41:50,iPhone 15 Pro   ,Electronics,28954425,5,0,0,144772125,Vũng Tàu,Online,COD,Completed,REP005
-7D072D94-658,2026-02-05,06:44:28,Máy giặt Samsung 9kg,Appliances,8586926,5,10,4293463,38641167,Hà Nội,Mobile App,Credit Card,Completed,REP009
-8504AB0B-964,2026-05-31,10:44:31,Bàn làm việc gỗ,Furniture,2624498,3,20,1574698,6298796,Biên Hòa,Online,Cash,Completed,REP013
-084F41D3-B06,2025-08-06,09:56:34,Tai nghe Sony WH-1000XM5,Electronics,9340025,1,10,934002,8406023,Vũng Tàu,Mobile App,E-Wallet,Cancelled,REP011
-C5315C3B-BAF,2026-01-03,16:13:18,Laptop Dell XPS 15,Electronics,34744046,1,15,5211606,29532440,TP. Hồ Chí Minh,In-Store,Cash,Completed,REP008
-28A0CBEB-B48,2026-02-06,06:07:53,Sách kinh doanh khởi nghiệp,Books,154335,1,20,30867,123468,Huế,Online,Credit Card,Completed,REP015
-6455CD51-0C1,2026-06-17,08:32:08,Sách kinh doanh khởi nghiệp,Books,168200,4,0,0,672800,Vũng Tàu,In-Store,Cash,Completed,REP017
-3D1C55BC-06D,2026-03-13,13:47:17,Sách kinh doanh khởi nghiệp,Books,148603,4,20,118882,475530,Vũng Tàu,In-Store,Cash,Completed,REP008
-5920CA9A-A0A,2025-09-26,12:25:02,Samsung Galaxy S24,Electronics,23664447,4,10,9465778,85192010,TP. Hồ Chí Minh,In-Store,Cash,Pending,REP001
-192FA600-E4D,2026-04-22,13:11:15,Laptop Dell XPS 15,Electronics,34685583,2,10,6937116,62434050,Nha Trang,In-Store,Cash,Cancelled,REP017
+D4B42672-F65,2025-10-08,18:43:17,Bàn làm việc gỗ,Furniture,2692969,4,0,0,10771876,Biên Hòa,Online,E-Wallet,Completed,REP009
+5E7F7D4A-F93,2025-12-30,14:37:36,Samsung Galaxy S24,Electronics,17777537,4,0,0,71110148,Nha Trang,Online,E-Wallet,Completed,REP008
+5739624B-562,2025-10-13,04:17:03,Váy nữ form A,Clothing,614706,3,0,0,1844118,Đà Nẵng,In-Store,E-Wallet,Completed,REP018
+21810DA8-B84,2025-09-20,14:52:29,Ghế văn phòng ergonomic,Furniture,4418500,1,10,441850,3976650,Hải Phòng,Reseller,E-Wallet,Completed,REP017
+E3065D6B-1FF,2025-08-05,21:12:45,Giày Nike Air Max,Footwear,2904785,1,0,0,2904785,Quy Nhơn,In-Store,Cash,Cancelled,REP011
+9B99B1BB-ACA,2026-01-25,17:53:05,Sách lập trình Python,Books,268416,1,0,0,268416,Hà Nội,In-Store,E-Wallet,Completed,REP010
+0AEC7984-C5F,2026-01-18,17:13:52,Váy nữ form A,Clothing,647155,4,20,517724,2070896,Hải Phòng,Reseller,E-Wallet,Completed,REP004
+95BC0CC3-EEC,2026-02-20,07:48:42,Ghế văn phòng ergonomic,Furniture,3730321,4,0,0,14921284,TP. Hồ Chí Minh,Reseller,Credit Card,Cancelled,REP018
+77871D5C-0C1,2025-10-03,18:04:44,Laptop Dell XPS 15,Electronics,34121097,1,0,0,34121097,Cần Thơ,Reseller,COD,Completed,REP004
+1AC36C3C-A89,2025-12-06,01:42:53,Giày Adidas Ultraboost,Footwear,3457600,5,5,864400,16423600,Biên Hòa,Online,Credit Card,Completed,REP009
+19DFA0CD-AFA,2025-12-21,10:15:27,Samsung Galaxy S24,Electronics,25654990,3,15,11544745,65420225,Cần Thơ,Reseller,Bank Transfer,Cancelled,REP020
+1A33A3D7-C6D,2025-07-11,22:02:35,Giày Nike Air Max,Footwear,3705488,2,10,741097,6669879,Hà Nội,In-Store,E-Wallet,Cancelled,REP004
+0A140FA5-7E4,2025-12-22,06:22:18,Ghế văn phòng ergonomic,Furniture,3858866,2,0,0,7717732,TP. Hồ Chí Minh,Online,Credit Card,Cancelled,REP004
+0DE7281B-BD6,2026-04-29,18:51:20,Tủ lạnh LG 300L,Appliances,13154336,4,0,0,52617344,Quy Nhơn,Mobile App,COD,Cancelled,REP017
+6ACBB978-58C,2026-02-15,14:55:17,Laptop Dell XPS 15,Electronics,37359295,3,20,22415577,89662308,Quy Nhơn,In-Store,E-Wallet,Cancelled,REP008
+3DE17954-FAC,2026-05-27,02:13:23,Sách lập trình Python,Books,207349,3,0,0,622047,Nha Trang,Reseller,Credit Card,Completed,REP020
+DBE15DD0-511,2026-05-01,19:52:08,Sách kinh doanh khởi nghiệp,Books,176574,2,20,70629,282519,Hải Phòng,Online,Credit Card,Pending,REP015
+FD9332DD-A31,2025-09-13,22:03:17,Sách lập trình Python,Books,285995,5,5,71498,1358477,Đà Nẵng,Online,COD,Cancelled,REP012
+18BFB8AF-75B,2025-09-29,21:15:21,Tai nghe Sony WH-1000XM5,Electronics,10056486,1,10,1005648,9050838,Vũng Tàu,In-Store,Bank Transfer,Completed,REP016
+8FE3327C-397,2026-05-22,08:09:14,iPhone 15 Pro,Electronics,26172727,2,0,0,52345454,Cần Thơ,In-Store,Credit Card,Completed,REP007
+9C7DDC0D-6A8,2025-12-19,17:13:26,Sách kinh doanh khởi nghiệp,Books,193305,4,10,77322,695898,Cần Thơ,Online,Cash,Completed,REP016
+26740DAB-896,2026-05-23,17:49:55,Giày Adidas Ultraboost,Footwear,4159790,3,20,2495874,9983496,Đà Nẵng,Online,Credit Card,Completed,REP002
+CFDADAE3-8C8,2025-10-14,09:34:47,Tai nghe Sony WH-1000XM5,Electronics,8737491,5,0,0,43687455,Huế,Online,Bank Transfer,Completed,REP017
+38A88D78-861,2025-12-12,17:53:27,Áo thun nam Uniqlo,Clothing,384094,4,10,153637,1382739,Hà Nội,Mobile App,COD,Pending,REP019
+5616C0C1-31E,2025-10-13,18:53:04,Máy giặt Samsung 9kg,Appliances,9994015,5,0,0,49970075,Hà Nội,In-Store,Cash,Completed,REP013
+FF62E263-C71,2026-06-26,23:46:52,Ghế văn phòng ergonomic,Furniture,4202588,2,0,0,8405176,Đà Nẵng,Online,Cash,Cancelled,REP007
+2B6571C0-8E6,2026-02-08,09:47:48,Tai nghe Sony WH-1000XM5,Electronics,8176990,5,5,2044247,38840703,Cần Thơ,In-Store,E-Wallet,Completed,REP016
+159D5B27-161,2025-08-14,16:43:07,Mỹ phẩm Innisfree,Beauty,288036,5,0,0,1440180,Vũng Tàu,Mobile App,Bank Transfer,Completed,REP013
+8C72925F-EC5,2026-05-26,10:01:47,Giày Adidas Ultraboost,Footwear,4199789,1,15,629968,3569821,Vũng Tàu,In-Store,E-Wallet,Completed,REP016
+7B5710FE-572,2026-06-19,19:29:00,Áo thun nam Uniqlo,Clothing,410431,3,0,0,1231293,Nha Trang,Online,Cash,Cancelled,REP005
+8563425B-14A,2025-08-21,15:32:31,Giày Nike Air Max,Footwear,3396749,3,10,1019024,9171223,Hà Nội,Reseller,E-Wallet,Cancelled,REP014
+97F2FAE5-117,2025-12-25,08:28:30,iPhone 15 Pro,Electronics,22662903,1,5,1133145,21529758,Huế,In-Store,Bank Transfer,Cancelled,REP019
+F277E03B-BBB,2025-11-21,05:37:42,iPhone 15 Pro,Electronics,31262215,3,0,0,93786645,Đà Nẵng,Online,Bank Transfer,Pending,REP013
+CF9F7E8B-4D4,2026-05-04,19:42:58,Tai nghe Sony WH-1000XM5,Electronics,7378600,2,10,1475720,13281480,TP. Hồ Chí Minh,In-Store,E-Wallet,Completed,REP002
+1D13C88D-8F8,2026-05-05,10:52:21,iPhone 15 Pro,Electronics,30017626,1,15,4502643,25514983,Nha Trang,Reseller,Bank Transfer,Pending,REP007
+75F0B19E-3D0,2026-01-22,18:40:55,Giày Adidas Ultraboost,Footwear,3248076,4,0,0,12992304,Biên Hòa,Online,COD,Cancelled,REP004
+51C799D9-2B7,2025-08-27,19:00:01,Sách kinh doanh khởi nghiệp,Books,196095,5,0,0,980475,Đà Nẵng,In-Store,Bank Transfer,Completed,REP007
+C1A94021-067,2026-05-22,15:24:41,Sách kinh doanh khởi nghiệp,Books,168702,5,10,84351,759159,Hải Phòng,Mobile App,E-Wallet,Cancelled,REP010
+9E63AC42-E03,2025-07-09,08:56:22,Máy giặt Samsung 9kg,Appliances,9241079,2,5,924107,17558051,Biên Hòa,Reseller,Cash,Pending,REP009
+4930F93D-2D3,2026-05-10,20:32:12,Áo thun nam Uniqlo,Clothing,487159,2,0,0,974318,Hải Phòng,Reseller,COD,Pending,REP001
+A782491A-515,2025-10-27,00:05:42,Tủ lạnh LG 300L,Appliances,10384016,1,15,1557602,8826414,Huế,Mobile App,Cash,Completed,REP008
+6B760822-7CC,2026-01-12,15:31:16,iPhone 15 Pro,Electronics,29045379,2,15,8713613,49377145,Huế,In-Store,Credit Card,Completed,REP018
+AB73BF90-600,2026-03-04,14:37:09,Giày Nike Air Max,Footwear,3396240,5,20,3396240,13584960,TP. Hồ Chí Minh,In-Store,E-Wallet,Completed,REP008
+2CA9117B-749,2026-04-27,20:17:11,Samsung Galaxy S24,Electronics,26002606,1,5,1300130,24702476,Hải Phòng,Mobile App,E-Wallet,Completed,REP003
+BD5029ED-E38,2026-02-11,15:58:30,Samsung Galaxy S24,Electronics,19751041,1,20,3950208,15800833,Nha Trang,In-Store,Bank Transfer,Completed,REP003
+577722FA-385,2025-11-28,18:50:17,Giày Nike Air Max,Footwear,3650564,1,20,730112,2920452,Quy Nhơn,Mobile App,COD,Cancelled,REP018
+9959E990-62D,2025-09-12,21:31:05,Tai nghe Sony WH-1000XM5,Electronics,9564103,1,15,1434615,8129488,Vũng Tàu,Mobile App,Bank Transfer,Pending,REP017
+B51B5C81-499,2026-02-02,05:08:42,Tủ lạnh LG 300L,Appliances,9893713,2,0,0,19787426,TP. Hồ Chí Minh,Reseller,Bank Transfer,Completed,REP005
+421F48FE-449,2025-10-17,00:45:21,Giày Adidas Ultraboost,Footwear,3050327,1,0,0,3050327,Quy Nhơn,Mobile App,E-Wallet,Pending,REP020
+FA377A6E-F1E,2026-03-01,14:10:04,Tai nghe Sony WH-1000XM5,Electronics,9326228,2,10,1865245,16787211,Vũng Tàu,Online,Credit Card,Completed,REP011
+023C1190-F29,2025-08-15,00:32:10,Samsung Galaxy S24,Electronics,18903534,2,0,0,37807068,Vũng Tàu,In-Store,Cash,Completed,REP008
+37C2BEA7-259,2025-07-13,04:31:25,Giày Adidas Ultraboost,Footwear,3051583,1,15,457737,2593846,Quy Nhơn,Online,E-Wallet,Completed,REP009
+1C9946C1-BD8,2025-08-23,00:16:14,Ghế văn phòng ergonomic,Furniture,4825141,5,15,3618855,20506850,Biên Hòa,In-Store,E-Wallet,Pending,REP005
+7B8B1463-03F,2026-02-13,23:12:25,Laptop Dell XPS 15,Electronics,34637649,2,15,10391294,58884004,Huế,Reseller,COD,Pending,REP016
+39D50FD5-B3C,2026-02-16,20:22:05,Áo thun nam Uniqlo,Clothing,536589,5,0,0,2682945,Biên Hòa,Reseller,COD,Completed,REP013
+520C8BC5-581,2026-06-04,10:04:04,Mỹ phẩm Innisfree,Beauty,264405,5,5,66101,1255924,Hà Nội,Mobile App,Credit Card,Pending,REP008
+A88B4DD0-DF5,2026-03-22,01:46:14,Áo thun nam Uniqlo,Clothing,512291,1,0,0,512291,TP. Hồ Chí Minh,Mobile App,COD,Completed,REP007
+DD0A0502-3CA,2026-05-27,09:52:45,Giày Adidas Ultraboost,Footwear,3952128,1,15,592819,3359309,Vũng Tàu,Reseller,Credit Card,Cancelled,REP016
+50D3D0C9-BBD,2026-02-22,04:29:54,Tai nghe Sony WH-1000XM5,Electronics,7223839,2,10,1444767,13002911,Huế,Mobile App,COD,Completed,REP016
+096D7674-AF6,2026-05-17,08:11:16,Giày Nike Air Max,Footwear,3774688,2,0,0,7549376,Biên Hòa,Online,Bank Transfer,Completed,REP013
+4A51B5BC-330,2026-04-23,20:26:33,Tai nghe Sony WH-1000XM5,Electronics,7279928,5,20,7279928,29119712,Hà Nội,In-Store,Credit Card,Cancelled,REP005
+BFD69DED-204,2025-11-24,17:47:37,iPhone 15 Pro,Electronics,32973759,2,0,0,65947518,Huế,Mobile App,COD,Cancelled,REP004
+31E19904-F25,2025-12-30,22:07:33,Sách kinh doanh khởi nghiệp,Books,162395,3,5,24359,462826,Vũng Tàu,Mobile App,Cash,Completed,REP017
+D8E8D0B2-7BC,2025-07-27,04:52:34,Áo thun nam Uniqlo,Clothing,528029,2,20,211211,844847,Biên Hòa,In-Store,Cash,Completed,REP008
+7615DB65-00C,2026-02-12,02:03:00,Áo thun nam Uniqlo,Clothing,453722,1,0,0,453722,Nha Trang,Online,Bank Transfer,Completed,REP007
+767F1AF4-394,2025-10-23,12:48:28,Mỹ phẩm Innisfree,Beauty,353418,5,20,353418,1413672,Quy Nhơn,Reseller,Credit Card,Completed,REP009
+73EDA4CA-198,2026-04-08,22:12:47,Máy giặt Samsung 9kg,Appliances,12452809,3,20,7471685,29886742,Đà Nẵng,Online,Cash,Completed,REP016
+4EBA0229-8AE,2025-09-18,20:35:03,Mỹ phẩm Innisfree,Beauty,256045,5,15,192033,1088192,Biên Hòa,In-Store,E-Wallet,Completed,REP014
+5068E62B-9E3,2026-06-15,04:36:42,Sách lập trình Python,Books,211878,4,10,84751,762761,Hà Nội,Online,Credit Card,Completed,REP003
+B97BB5B9-FF1,2026-03-25,22:48:38,Tai nghe Sony WH-1000XM5,Electronics,8320907,5,5,2080226,39524309,Vũng Tàu,Online,Credit Card,Completed,REP017
+BD7D35BF-CD4,2026-03-03,05:12:27,Bàn làm việc gỗ,Furniture,2339785,4,10,935914,8423226,Đà Nẵng,Reseller,E-Wallet,Pending,REP016
+7F945A02-D48,2025-09-01,22:24:43,Sách lập trình Python,Books,257722,4,0,0,1030888,Hà Nội,In-Store,COD,Completed,REP012
+7CE414F9-EDB,2025-09-10,01:15:44,Samsung Galaxy S24,Electronics,24822752,2,5,2482275,47163229,Huế,In-Store,COD,Pending,REP013
+1EA7C92C-5DB,2025-10-21,23:53:58,iPhone 15 Pro,Electronics,24655277,3,5,3698291,70267540,Huế,Reseller,Bank Transfer,Completed,REP001
+6EF07A12-099,2025-12-17,02:26:27,Ghế văn phòng ergonomic,Furniture,4252434,5,10,2126217,19135953,Hải Phòng,In-Store,Cash,Completed,REP010
+436773BE-E36,2026-01-02,22:40:43,Mỹ phẩm Innisfree,Beauty,280397,4,15,168238,953350,Nha Trang,Reseller,Credit Card,Cancelled,REP004
+562F3BCC-EE0,2025-09-08,23:40:56,Mỹ phẩm Innisfree,Beauty,312996,2,15,93898,532094,Vũng Tàu,Reseller,Cash,Completed,REP009
+0D5AC9B8-000,2025-11-09,02:28:07,Sách lập trình Python,Books,293287,4,0,0,1173148,Hải Phòng,Online,E-Wallet,Completed,REP009
+6CA13517-BFE,2026-01-20,18:45:08,Sách kinh doanh khởi nghiệp,Books,188117,4,0,0,752468,Cần Thơ,Mobile App,Cash,Cancelled,REP003
+ECF56664-9E5,2026-03-17,20:05:43,Giày Adidas Ultraboost,Footwear,3429258,1,15,514388,2914870,Cần Thơ,Online,Cash,Completed,REP015
+71D2ACDA-F0A,2026-05-21,16:57:27,iPhone 15 Pro,Electronics,29748757,2,10,5949751,53547763,Hải Phòng,Online,Cash,Pending,REP015
+CBFEDBC0-236,2026-01-30,19:42:19,Giày Adidas Ultraboost,Footwear,4392537,3,15,1976641,11200970,Nha Trang,In-Store,COD,Completed,REP018
+13CA6F39-33D,2026-04-12,20:28:57,iPhone 15 Pro,Electronics,27491449,3,10,8247434,74226913,Vũng Tàu,Online,COD,Completed,REP007
+948CE8D8-90F,2026-06-19,21:29:09,Máy giặt Samsung 9kg,Appliances,8962429,3,10,2688728,24198559,Hà Nội,In-Store,Bank Transfer,Completed,REP009
+D652A36C-318,2026-02-18,16:52:48,Giày Adidas Ultraboost,Footwear,3273447,4,0,0,13093788,Nha Trang,Mobile App,Cash,Completed,REP002
+94E1DD46-2FE,2026-03-19,20:49:17,Bàn làm việc gỗ,Furniture,2277413,1,0,0,2277413,Huế,Mobile App,Cash,Cancelled,REP012
+B204B1DE-E3B,2026-03-10,00:23:25,Tủ lạnh LG 300L,Appliances,10064942,1,15,1509741,8555201,Nha Trang,Online,Bank Transfer,Completed,REP006
+D87EC8C3-3AA,2025-12-06,04:36:24,Sách kinh doanh khởi nghiệp,Books,204311,3,0,0,612933,Huế,Online,COD,Pending,REP006
+A36D66AC-215,2026-05-27,06:52:42,Váy nữ form A,Clothing,550163,5,0,0,2750815,Hải Phòng,Mobile App,E-Wallet,Completed,REP011
+2878945E-2BD,2025-08-19,15:03:58,Giày Adidas Ultraboost,Footwear,3838506,3,20,2303103,9212415,Huế,Mobile App,Cash,Cancelled,REP014
+71461F15-21A,2026-05-17,03:07:44,Giày Adidas Ultraboost,Footwear,3795863,4,5,759172,14424280,Hà Nội,Mobile App,Bank Transfer,Completed,REP017
+B9D03A28-4DE,2026-05-14,04:49:04,Giày Adidas Ultraboost,Footwear,4501547,3,15,2025696,11478945,Vũng Tàu,Reseller,E-Wallet,Completed,REP015
+0C9A257D-2B3,2025-12-21,23:14:37,iPhone 15 Pro,Electronics,33184347,2,5,3318434,63050260,Nha Trang,Online,COD,Completed,REP017
+56128AC3-8B6,2025-07-13,03:45:11,Bàn làm việc gỗ,Furniture,2955977,3,10,886793,7981138,Cần Thơ,Reseller,E-Wallet,Completed,REP005
+3E1D2C39-07D,2026-01-09,09:46:01,iPhone 15 Pro,Electronics,30300751,4,20,24240600,96962404,TP. Hồ Chí Minh,Mobile App,E-Wallet,Cancelled,REP009
+02E7D223-15B,2025-08-26,14:50:55,Mỹ phẩm Innisfree,Beauty,380266,4,20,304212,1216852,Hà Nội,Mobile App,E-Wallet,Cancelled,REP006
+BC533F96-5E4,2025-10-28,09:30:59,Giày Adidas Ultraboost,Footwear,4227347,3,15,1902306,10779735,TP. Hồ Chí Minh,Reseller,Credit Card,Completed,REP002
+62B223CA-557,2026-01-27,02:02:19,Váy nữ form A,Clothing,689667,4,5,137933,2620735,TP. Hồ Chí Minh,Online,Cash,Completed,REP009
+E5244A9D-AD1,2025-09-13,16:03:49,Tủ lạnh LG 300L,Appliances,11572461,2,0,0,23144922,Nha Trang,In-Store,E-Wallet,Completed,REP014
+A97444C7-3CB,2026-03-25,21:19:31,Sách lập trình Python,Books,265406,4,20,212324,849300,Vũng Tàu,Online,E-Wallet,Completed,REP012
