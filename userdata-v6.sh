@@ -12,7 +12,7 @@ cd app
 
 # Create .env file
 cat > .env <<EOF
-PORT=3000
+PORT=3001
 EOF
 
 # Install dependencies
