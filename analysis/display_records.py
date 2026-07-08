@@ -4,6 +4,10 @@ display_records.py
 Display records from a CSV or Parquet file.
 File format is detected automatically from the file extension.
 
+String values are shown with surrounding quotes so leading/trailing
+spaces are immediately visible — making it easy to compare raw CSV
+(before transformation) against cleaned Parquet (after transformation).
+
 Usage:
     # Display all records
     python analysis/display_records.py --file ./data/sales_001.csv
@@ -13,7 +17,7 @@ Usage:
     python analysis/display_records.py --file ./data/sales_001.csv --n 10
     python analysis/display_records.py --file ./cleaned/sales_001.parquet --n 5
 
-    # Check for leading/trailing spaces in string columns
+    # Check which columns contain leading/trailing spaces
     python analysis/display_records.py --file ./data/sales_001.csv --check-spaces
     python analysis/display_records.py --file ./cleaned/sales_001.parquet --check-spaces
 """
@@ -42,6 +46,43 @@ def load_file(path: str) -> pd.DataFrame:
         raise ValueError(f"Unsupported file format '{ext}'. Use .csv or .parquet")
 
     return df
+
+
+# ── Display ───────────────────────────────────────────────────────────────────
+
+def display(df: pd.DataFrame, n: Optional[int]) -> None:
+    """
+    Print records with string columns quoted so spaces are visible.
+
+    e.g. a product name with 4 leading spaces appears as:
+         '    Bàn làm việc gỗ'   ← spaces clearly visible
+    instead of:
+             Bàn làm việc gỗ     ← spaces invisible
+    """
+    subset = df if n is None else df.head(n)
+    label = "all" if n is None else str(n)
+
+    print(f"  Rows in file : {len(df):,}")
+    print(f"  Columns      : {len(df.columns)}")
+    print(f"  Displaying   : {label} record(s)")
+    print(f"  Note         : string values are quoted — spaces inside quotes are real")
+    print()
+
+    # Build a display copy where every string cell is wrapped in single quotes
+    # so leading/trailing whitespace is unmistakably visible in the output.
+    display_df = subset.copy()
+    for col in display_df.select_dtypes(include="object").columns:
+        display_df.loc[:, col] = display_df[col].apply(
+            lambda v: f"'{v}'" if pd.notna(v) else v
+        )
+
+    with pd.option_context(
+        "display.max_rows", None,
+        "display.max_columns", None,
+        "display.width", None,
+        "display.max_colwidth", 40,
+    ):
+        print(display_df.to_string(index=True))
 
 
 # ── Space checker ─────────────────────────────────────────────────────────────
@@ -76,28 +117,6 @@ def check_spaces(df: pd.DataFrame) -> None:
 
     if not found_any:
         print("\n  All string columns are clean — no leading/trailing spaces found.")
-
-
-# ── Display ───────────────────────────────────────────────────────────────────
-
-def display(df: pd.DataFrame, n: Optional[int]) -> None:
-    """Print file info and records."""
-    subset = df if n is None else df.head(n)
-    label = "all" if n is None else str(n)
-
-    print(f"  Rows in file : {len(df):,}")
-    print(f"  Columns      : {len(df.columns)}")
-    print(f"  Displaying   : {label} record(s)")
-    print()
-
-    # Widen pandas display so columns don't get truncated
-    with pd.option_context(
-        "display.max_rows", None,
-        "display.max_columns", None,
-        "display.width", None,
-        "display.max_colwidth", 30,
-    ):
-        print(subset.to_string(index=True))
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
