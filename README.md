@@ -104,19 +104,13 @@ gcc --version
 
 ### 4 — Clone or upload the project
 
-**Option A — git clone**
 
 ```bash
 sudo dnf install -y git
-git clone https://github.com/<your-org>/vietnam-local-zone.git
+git clone -b data https://github.com/vietaws/vietnam-local-zone.git
 cd vietnam-local-zone
 ```
 
-**Option B — scp from your local machine**
-
-```bash
-scp -i your-key.pem -r ./vietnam-local-zone ec2-user@<PUBLIC_IP>:~/
-```
 
 ### 5 — Create a virtual environment
 
