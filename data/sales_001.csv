@@ -1,5 +1,5 @@
 order_id,sale_date,sale_time,product_name,category,unit_price,quantity,discount_pct,discount_amount,total_amount,city,sales_channel,payment_method,status,sales_rep_id
-D4B42672-F65,2025-10-08,18:43:17,Bàn làm việc gỗ,Furniture,2692969,4,0,0,10771876,Biên Hòa,Online,E-Wallet,Completed,REP009
+D4B42672-F65,2025-10-08,18:43:17,    Bàn làm việc gỗ,Furniture,2692969,4,0,0,10771876,Biên Hòa,Online,E-Wallet,Completed,REP009
 5E7F7D4A-F93,2025-12-30,14:37:36,Samsung Galaxy S24,Electronics,17777537,4,0,0,71110148,Nha Trang,Online,E-Wallet,Completed,REP008
 5739624B-562,2025-10-13,04:17:03,Váy nữ form A,Clothing,614706,3,0,0,1844118,Đà Nẵng,In-Store,E-Wallet,Completed,REP018
 21810DA8-B84,2025-09-20,14:52:29,Ghế văn phòng ergonomic,Furniture,4418500,1,10,441850,3976650,Hải Phòng,Reseller,E-Wallet,Completed,REP017
