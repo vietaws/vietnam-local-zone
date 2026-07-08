@@ -12,6 +12,10 @@ Usage:
     # Display first N records
     python analysis/display_records.py --file ./data/sales_001.csv --n 10
     python analysis/display_records.py --file ./cleaned/sales_001.parquet --n 5
+
+    # Check for leading/trailing spaces in string columns
+    python analysis/display_records.py --file ./data/sales_001.csv --check-spaces
+    python analysis/display_records.py --file ./cleaned/sales_001.parquet --check-spaces
 """
 
 import argparse
@@ -38,6 +42,40 @@ def load_file(path: str) -> pd.DataFrame:
         raise ValueError(f"Unsupported file format '{ext}'. Use .csv or .parquet")
 
     return df
+
+
+# ── Space checker ─────────────────────────────────────────────────────────────
+
+def check_spaces(df: pd.DataFrame) -> None:
+    """Report every string column that contains values with leading/trailing spaces."""
+    print("\n" + "=" * 60)
+    print("WHITESPACE CHECK — STRING COLUMNS")
+    print("=" * 60)
+
+    string_cols = df.select_dtypes(include="object").columns.tolist()
+    found_any = False
+
+    for col in string_cols:
+        dirty = df[col].dropna()
+        dirty = dirty[dirty != dirty.str.strip()]
+        if dirty.empty:
+            print(f"  ✓  {col}")
+        else:
+            found_any = True
+            print(f"  ✗  {col}  ({len(dirty)} dirty value(s))")
+            for val in dirty.unique():
+                leading  = len(val) - len(val.lstrip())
+                trailing = len(val) - len(val.rstrip())
+                detail = []
+                if leading:
+                    detail.append(f"{leading} leading")
+                if trailing:
+                    detail.append(f"{trailing} trailing")
+                print(f"       raw  : {repr(val)}")
+                print(f"       clean: {repr(val.strip())}  [{', '.join(detail)} space(s)]")
+
+    if not found_any:
+        print("\n  All string columns are clean — no leading/trailing spaces found.")
 
 
 # ── Display ───────────────────────────────────────────────────────────────────
@@ -76,6 +114,10 @@ def main():
         "--n", type=int, default=None,
         help="Number of records to display (default: all)"
     )
+    parser.add_argument(
+        "--check-spaces", action="store_true",
+        help="Report columns with leading/trailing whitespace in string values"
+    )
     args = parser.parse_args()
 
     df = load_file(args.file)
@@ -83,7 +125,12 @@ def main():
     print("=" * 60)
     print(f"FILE : {args.file}")
     print("=" * 60)
-    display(df, args.n)
+
+    if args.check_spaces:
+        check_spaces(df)
+    else:
+        display(df, args.n)
+
     print()
 
 
